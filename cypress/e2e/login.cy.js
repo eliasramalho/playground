@@ -6,16 +6,19 @@ describe('Login', () => {
   it('Deve realizar login', () => {
     cy.login('papito@cyskills.com.br', 'showtime')
     cy.userLoggedIn()
+
   })
 
   it('Login com senha invalida', () => {
     cy.login('papito@cyskills.com.br', 'invalid-password')
     cy.haveNotice('E-mail ou senha incorretos. Por favor, tente novamente!')
+
   })
 
   it('Login com e-mail nao cadastrado', () => {
     cy.login('nao_cadastrado@cyskills.com.br', 'some-password')
     cy.haveNotice('E-mail ou senha incorretos. Por favor, tente novamente!')
+    
   })
 
   it('Login com e-mail incorreto', () => {
